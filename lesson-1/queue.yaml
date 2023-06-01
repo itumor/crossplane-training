@@ -2,7 +2,7 @@
 apiVersion: sqs.aws.crossplane.io/v1beta1
 kind: Queue
 metadata:
-  name: cosmic-vault-2023-june-w0x1y2
+  name: nova-vault-2023-june-i2j3k4
 spec:
   forProvider:
     region: us-east-1

@@ -3,10 +3,12 @@ apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
   name: nebula-backup-2023-june-s7t8u9
+  annotations:
+    crossplane.io/external-name: nebula-backup-2023-june-s7t8u9
 spec:
   deletionPolicy: Delete
   forProvider:
-    acl: private
+    objectOwnership: BucketOwnerEnforced
     locationConstraint: us-east-1
   providerConfigRef:
     name: default
