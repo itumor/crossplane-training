@@ -20,7 +20,7 @@ spec:
           name: # patched
         spec:
           forProvider:
-            acl: private
+            objectOwnership: BucketOwnerEnforced
             locationConstraint: us-east-1
             notificationConfiguration:
               queueConfigurations:

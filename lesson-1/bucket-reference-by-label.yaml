@@ -5,7 +5,7 @@ metadata:
   name: sapphire-store-2023-june-x1y2z3
 spec:
   forProvider:
-    acl: private
+    objectOwnership: BucketOwnerEnforced
     locationConstraint: us-east-1
     notificationConfiguration:
       queueConfigurations:

@@ -9,7 +9,7 @@ spec:
     namespace: upbound-system
   deletionPolicy: Delete
   forProvider:
-    acl: private
+    objectOwnership: BucketOwnerEnforced
     locationConstraint: us-east-1
   providerConfigRef:
     name: default
