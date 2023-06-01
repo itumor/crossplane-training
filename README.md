@@ -42,6 +42,24 @@ NAME                                   READY   UP-TO-DATE   A
 crossplane-provider-aws-a2e16ca2fc1a   1/1     1            1           2m46s
 ```
 
+# Create a Kubernetes secret for AWS
+The provider requires credentials to create and manage AWS resources.
 
-# retrieve profile's credentials, save it under 'default' profile, and base64 encode it
-BASE64ENCODED_AWS_ACCOUNT_CREDS=$(echo -e "[default]\naws_access_key_id = $(aws configure get aws_access_key_id --profile admin)\naws_secret_access_key = $(aws configure get aws_secret_access_key --profile admin)" | base64  | tr -d "\n")
+# Generate an AWS key-pair file
+Create a text file containing the AWS account aws_access_key_id and aws_secret_access_key. The AWS documentation provides information on how to generate these keys.
+```
+[default]
+aws_access_key_id = <aws_access_key>
+aws_secret_access_key = <aws_secret_key>
+```
+Save this text file as aws-credentials.txt.
+
+# Create a Kubernetes secret with AWS credentials
+Use kubectl create secret -n upbound-system to generate a Kubernetes secret object inside the Kubernetes cluster.
+
+```
+kubectl create secret \
+generic aws-secret \
+-n upbound-system \
+--from-file=creds=./aws-credentials.txt
+```
