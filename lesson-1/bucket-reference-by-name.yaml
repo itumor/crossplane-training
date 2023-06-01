@@ -2,11 +2,11 @@
 apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
-  name: # give it a unique name
+  name: luna-archive-2023-june-p4q5r6
 spec:
   forProvider:
     acl: private
-    locationConstraint: eu-central-1
+    locationConstraint: us-east-1
     notificationConfiguration:
       queueConfigurations:
         - events:

@@ -33,7 +33,7 @@ Install provider using Crossplane CLI
 
 Check deployment
 
-    kubectl get deploy -n crossplane-system –w
+    kubectl get deploy -n upbound-system –w
 
 
 Should be something like
@@ -41,3 +41,7 @@ Should be something like
 NAME                                   READY   UP-TO-DATE   AVAILABLE   AGE
 crossplane-provider-aws-a2e16ca2fc1a   1/1     1            1           2m46s
 ```
+
+
+# retrieve profile's credentials, save it under 'default' profile, and base64 encode it
+BASE64ENCODED_AWS_ACCOUNT_CREDS=$(echo -e "[default]\naws_access_key_id = $(aws configure get aws_access_key_id --profile admin)\naws_secret_access_key = $(aws configure get aws_secret_access_key --profile admin)" | base64  | tr -d "\n")
